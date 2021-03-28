@@ -1,16 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:osca_fest/widgets/products_widget.dart';
 
-class Products{
-  final String category,imagePath;
+class Products with ChangeNotifier{
+  final String category,imagePath,id;
   bool isFavourite;
+  final double price;
 
-  Products({this.category,this.imagePath,this.isFavourite = false});
+  Products({this.category,this.imagePath,this.isFavourite = false,this.id, this.price});
 }
 
 
-class ListOfProduct{
-
-  List<Products> _products = [
-    Products()
-  ];
-}

@@ -1,8 +1,7 @@
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:osca_fest/widgets/category_widget.dart';
-
+import 'package:osca_fest/provider_management/item_category.dart';
+import 'package:osca_fest/widgets/grid_widget.dart';
+import 'package:provider/provider.dart';
 import 'cart_item_counter.dart';
 
 class ProductsPage extends StatefulWidget {
@@ -13,11 +12,14 @@ class ProductsPage extends StatefulWidget {
 }
 
 class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderStateMixin {
+  String currentCategory = "";
+
   int cartItemCounter = 0;
   AnimationController _animationController ;
   @override
   void initState() {
     super.initState();
+    currentCategory = "All Products";
     _animationController = AnimationController(
         vsync: this,
         duration: Duration(milliseconds: 300),);
@@ -26,6 +28,7 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
   _animationController.forward():_animationController.reverse();
   @override
   Widget build(BuildContext context) {
+    final categoryItems = Provider.of<CategoryList>(context).categories;
     return  SingleChildScrollView(
       child: SafeArea(
           child: Padding(
@@ -43,6 +46,7 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
+
                       onTap: widget.toggleAnimated,
                       child: Image.asset(
                         "asset/image/icon_Image2.png",
@@ -52,7 +56,31 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
                     CartItemCountWidget(cartItemCounter),
                   ],
                 ),
-                CategoryWidget(),
+                Container(
+                  height: 40,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: categoryItems.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            currentCategory = "${categoryItems[index].nameOfCategory}";
+                          });
+                        },
+                        child: Text(
+                            "${categoryItems[index].nameOfCategory}"),
+                        color: Colors.white24,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                            new BorderRadius.circular(30.0)),
+                      ),
+                    ),
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+                GridWidget(currentCategory),
               ],
             ),
           )),

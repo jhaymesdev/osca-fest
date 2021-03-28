@@ -58,6 +58,12 @@ flutter:
     - asset/image/opensource9.jpg
     - asset/image/opensource10.jpg
     - asset/image/profile_image.jpg
+    - asset/image/sweat_shirt1.jpg
+    - asset/image/sweat_shirt2.jpg
+    - asset/image/sweat_shirt4.jpg
+    - asset/image/sweat_shirt5.jpg
+    - asset/image/sweat_shirt6.jpg
+    - asset/image/sweat_shirt7.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
