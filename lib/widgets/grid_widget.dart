@@ -5,33 +5,20 @@ import 'package:provider/provider.dart';
 
 
 class GridWidget extends StatelessWidget {
-  final String category;
-  GridWidget(this.category);
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<ListOfProduct>(context);
-    final products =productsData.findByCategory(category);
-    final allProducts = productsData.products;
+    final products = productsData.products;
 
-    return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+    return GridView.builder(gridDelegate:
+    SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,
+        crossAxisSpacing: 6,
+        childAspectRatio: 3.7 / 5),
         itemBuilder: (context, index) => ChangeNotifierProvider.value(
-          value: allProducts[index],
-          //create: (BuildContext context) => products[index],
+          value: products[index],
           child:GridItem(),
         ),
-            /*:  GridTile(child: Container(
-          child: Expanded(
-            child: Column(
-              children: [
-                Image.asset("${products.imagePath[index]}"),
-                Text(products.price.toStringAsFixed(2)[index],style:
-                TextStyle(fontSize: 30,fontWeight: FontWeight.w700),),
-              ],
-            ),
-          ),
-        ))
-
-             */
+      itemCount: products.length,
     );
   }
 }

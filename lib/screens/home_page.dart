@@ -40,30 +40,27 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     final categoryItems = Provider.of<CategoryList>(context).categories;
     return Scaffold(
-      body: GestureDetector(
-        //onTap: toggleAnimation,
-        child: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            return Stack(
-              children: [
-                MyDrawer(),
-                Transform.scale(
-                  scale: 1 - (_animationController.value * 0.4),
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: _animationController.isDismissed
-                        ? MediaQuery.of(context).size.height
-                        : MediaQuery.of(context).size.height + 100,
-                    color: Color(0xff173F5F),
-                    child: ProductsPage(toggleAnimation),
-                  ),
+      body: AnimatedBuilder(
+        animation: _animationController,
+        builder: (context, child) {
+          return Stack(
+            children: [
+              MyDrawer(),
+              Transform.scale(
+                scale: 1 - (_animationController.value * 0.4),
+                alignment: Alignment.centerRight,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: _animationController.isDismissed
+                      ? MediaQuery.of(context).size.height
+                      : MediaQuery.of(context).size.height + 100,
+                  color: Color(0xff173F5F),
+                  child: ProductsPage(toggleAnimation),
                 ),
-              ],
-            );
-          },
-        ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

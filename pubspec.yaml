@@ -64,6 +64,15 @@ flutter:
     - asset/image/sweat_shirt5.jpg
     - asset/image/sweat_shirt6.jpg
     - asset/image/sweat_shirt7.jpg
+    - asset/image/stickers1.png
+    - asset/image/stickers2.jpeg
+    - asset/image/stickers3.jpg
+    - asset/image/stickers4.jpg
+    - asset/image/stickers5.jpg
+    - asset/image/stickers6.jpg
+    - asset/image/stickers7.jpg
+    - asset/image/stickers8.jpg
+    - asset/image/stickers9.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

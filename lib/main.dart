@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:osca_fest/screens/product_details.dart';
 import './provider_management/item_category.dart';
 import './provider_management/productProvider.dart';
 import './provider_management/products.dart';
@@ -23,9 +24,12 @@ class MyApp extends StatelessWidget {
         title: 'OSCA-FEST',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch:Colors.blue,
+          primarySwatch:Colors.orange,
         ),
         home: HomePage(),
+        routes: {
+          ProductDetailScreen.routeName:(context) =>ProductDetailScreen(),
+        },
       ),
     );
   }

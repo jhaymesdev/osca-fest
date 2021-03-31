@@ -30,11 +30,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(2.0),
             child: RaisedButton(
-              onPressed: () {
-                setState(() {
-                  currentCategory = "${categoryItems[index].nameOfCategory}";
-                });
-              },
+              onPressed: () {},
               child: Text(
                   "${categoryItems[index].nameOfCategory}"),
               color: Colors.white24,
