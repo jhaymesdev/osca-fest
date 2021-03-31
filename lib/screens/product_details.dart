@@ -28,7 +28,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ProductImageDetail(product.imagePath),
             ],
           ),
-          BelowStalk(),
+          BelowStalk(nameOfProduct: product.productName,description: product.description,),
         ],
       )
     );

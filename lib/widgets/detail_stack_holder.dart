@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:osca_fest/provider_management/products.dart';
 
 class PageStackHolder extends StatelessWidget {
-  bool? isClothing;
+  // TODO: get the a string (category) then use it in a switch statement
+  bool isClothing;
   PageStackHolder(this.isClothing);
   Widget circleStuff({Function navigate, Widget child}){
     return GestureDetector(
@@ -43,6 +44,7 @@ class PageStackHolder extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 70,),
+               //TODO: instead of using a boolean a switch statement should be perfect
                isClothing? Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +55,7 @@ class PageStackHolder extends StatelessWidget {
                       circleStuff(child: Text("XL",style:style)),
                     ],
                   ),
-                ):null,
+                ):Text("! is a bug"),
                 ],
               ),
             ),
