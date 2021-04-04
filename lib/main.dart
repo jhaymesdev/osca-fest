@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:osca_fest/screens/product_details.dart';
+import 'package:osca_fest/screens/profile_page.dart';
 import './provider_management/item_category.dart';
 import './provider_management/productProvider.dart';
 import './provider_management/products.dart';
@@ -25,10 +26,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch:Colors.orange,
+          accentColor: Colors.blue
         ),
         home: HomePage(),
         routes: {
           ProductDetailScreen.routeName:(context) =>ProductDetailScreen(),
+          ProfilePage.routeName:(context) =>ProfilePage(),
+
         },
       ),
     );

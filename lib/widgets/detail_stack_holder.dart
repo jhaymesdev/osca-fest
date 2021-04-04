@@ -6,9 +6,9 @@ class PageStackHolder extends StatelessWidget {
   // TODO: get the a string (category) then use it in a switch statement
   bool isClothing;
   PageStackHolder(this.isClothing);
-  Widget circleStuff({Function navigate, Widget child}){
+  Widget circleStuff({Function? navigate, Widget? child}){
     return GestureDetector(
-      onTap: navigate,
+      onTap: navigate as void Function()?,
       child: CircleAvatar(
         backgroundColor: Colors.white,
         radius: 25,

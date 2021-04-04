@@ -9,10 +9,10 @@ class GridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final productsData = Provider.of<ListOfProduct>(context);
     final products = productsData.products;
-
     return GridView.builder(gridDelegate:
-    SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,
-        crossAxisSpacing: 6,
+    SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,mainAxisSpacing: 5,
+        crossAxisSpacing: 7,
         childAspectRatio: 3.7 / 5),
         itemBuilder: (context, index) => ChangeNotifierProvider.value(
           value: products[index],

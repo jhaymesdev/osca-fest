@@ -15,22 +15,27 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    final productId = ModalRoute.of(context).settings.arguments as String;
+    final productId = ModalRoute.of(context)!.settings.arguments as String?;
     final product = Provider.of<ListOfProduct>(context).findById(productId);
-   final deviceSize = MediaQuery.of(context).size;
+    final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
+        body: SingleChildScrollView(
+      child: Column(
         children: [
           Stack(
             alignment: Alignment.topRight,
             children: [
-             PageStackHolder(product.category.contains("Sweatshirts")|| product.category.contains("Shirts")),
-              ProductImageDetail(product.imagePath),
+              PageStackHolder(product.category!.contains("Sweatshirts") ||
+                  product.category!.contains("Shirts")),
+              ProductImageDetail(product.imagePath, product.id),
             ],
           ),
-          BelowStalk(nameOfProduct: product.productName,description: product.description,),
+          BelowStalk(nameOfProduct: product.productName, productPrice: product.price,
+            description: product.description,
+          ),
         ],
-      )
+      ),
+    ),
     );
   }
 }

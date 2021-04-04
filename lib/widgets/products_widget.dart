@@ -18,7 +18,7 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
   String currentCategory = "";
 
   int cartItemCounter = 0;
-  AnimationController _animationController ;
+  late AnimationController _animationController ;
   @override
   void initState() {
     super.initState();
@@ -33,18 +33,20 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
   Widget build(BuildContext context) {
     final productsData = Provider.of<ListOfProduct>(context);
     final products = productsData.products;
-    final categoryItems = Provider.of<CategoryList>(context).categories;
     return  SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               GestureDetector(
+                /*
                 onTap: (){
                   setState(() {
                     products..shuffle();
                   });
                 },
+
+                 */
                 child: Image.asset(
                   "asset/image/open_source.png",
                   height: 15,
@@ -54,7 +56,7 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: widget.toggleAnimated,
+                    onTap: widget.toggleAnimated as void Function()?,
                     child: Image.asset(
                       "asset/image/icon_Image2.png",
                       height: 12,
