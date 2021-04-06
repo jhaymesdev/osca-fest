@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:osca_fest/screens/add_product_screen.dart';
 import 'package:osca_fest/screens/product_details.dart';
 import 'package:osca_fest/screens/profile_page.dart';
 import './provider_management/item_category.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ProductDetailScreen.routeName:(context) =>ProductDetailScreen(),
           ProfilePage.routeName:(context) =>ProfilePage(),
+          AddProductScreen.routeName:(context) =>AddProductScreen(),
 
         },
       ),

@@ -3,20 +3,13 @@ import 'package:osca_fest/provider_management/item_category.dart';
 import 'package:provider/provider.dart';
 
 class CategoryWidget extends StatefulWidget {
+  String?   currentCategory;
+  CategoryWidget({this.currentCategory});
   @override
   _CategoryWidgetState createState() => _CategoryWidgetState();
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> {
-  String currentCategory = "";
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    currentCategory = "All Products";
-  }
-
   @override
   Widget build(BuildContext context) {
     final categoryItems = Provider.of<CategoryList>(context).categories;
@@ -30,9 +23,12 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(2.0),
             child: RaisedButton(
-              onPressed: () {},
-              child: Text(
-                  "${categoryItems[index].nameOfCategory}"),
+              onPressed: () {
+                setState(() {
+                  widget.currentCategory = categoryItems[index].nameOfCategory;
+                });
+              },
+              child: Text("${categoryItems[index].nameOfCategory}"),
               color: Colors.white24,
               shape: RoundedRectangleBorder(
                   borderRadius:

@@ -10,7 +10,7 @@ class CategoryList with ChangeNotifier{
   
   List<ItemCategory> _categories = [
     ItemCategory("All Products"),
-    ItemCategory("Sweatshirt"),
+    ItemCategory("Sweatshirts"),
     ItemCategory("Furniture"),
     ItemCategory("Stickers"),
     ItemCategory("Bags"),

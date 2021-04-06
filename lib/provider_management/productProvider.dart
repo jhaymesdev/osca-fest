@@ -37,15 +37,35 @@ class ListOfProduct with ChangeNotifier{
    */
   List<Products> get products {
     return [..._products];
+    // getting all products
   }
   List<Products> get getSweatshirts {
-    return _products.where((element) => element.category =="Sweatshirt").toList();
+    return _products.where((element) => element.category =="Sweatshirts").toList();
+    //get only sweatshirt
+  }
+  List<Products> get getFurniture {
+    return _products.where((element) => element.category =="Furniture").toList();
+    //get only sweatshirt
+  }
+  List<Products> get getStickers {
+    return _products.where((element) => element.category =="Stickers").toList();
+    //get only sweatshirt
+  }
+  List<Products> get getBags{
+    return _products.where((element) => element.category =="Bags").toList();
+    //get only sweatshirt
+  }
+  List<Products> get getShirts{
+    return _products.where((element) => element.category =="Shirts").toList();
+    //get only sweatshirt
   }
   List<Products> get getFavorites{
-    return _products.where((element) => element.isFavourite ==true).toList();
+    return _products.where((element) => element.isFavourite).toList();
+    //gets favorites back
   }
   Products findById(String? productId){
     return _products.firstWhere((element) => element.id == productId);
+    // for the product detail page
   }
   /*
   Products findByCategory(String category){

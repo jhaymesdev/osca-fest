@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:osca_fest/screens/add_product_screen.dart';
 import 'package:osca_fest/screens/profile_page.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -38,7 +39,7 @@ class _MyDrawerState extends State<MyDrawer> {
               myListTile(leadingIcon: Icon(Icons.person), textStuff: 'Profile',pageRoute: ProfilePage.routeName),
               myListTile(leadingIcon: Icon(Icons.favorite), textStuff: 'Favourites',),
               myListTile(leadingIcon: Icon(Icons.new_releases), textStuff: 'News',),
-              myListTile(leadingIcon: Icon(Icons.add_box), textStuff: 'Add product',),
+              myListTile(leadingIcon: Icon(Icons.add_box), textStuff: 'Add product',pageRoute: AddProductScreen.routeName),
               myListTile(leadingIcon: Icon(Icons.settings), textStuff: 'Settings',),
             ],
           ),

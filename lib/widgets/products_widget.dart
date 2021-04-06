@@ -15,14 +15,14 @@ class ProductsPage extends StatefulWidget {
 }
 
 class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderStateMixin {
-  String currentCategory = "";
+  String currentCategory = "All Products";
 
   int cartItemCounter = 0;
   late AnimationController _animationController ;
   @override
   void initState() {
     super.initState();
-    currentCategory = "All Products";
+
     _animationController = AnimationController(
         vsync: this,
         duration: Duration(milliseconds: 300),);
@@ -31,6 +31,7 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
   _animationController.forward():_animationController.reverse();
   @override
   Widget build(BuildContext context) {
+    final categoryItems = Provider.of<CategoryList>(context).categories;
     final productsData = Provider.of<ListOfProduct>(context);
     final products = productsData.products;
     return  SafeArea(
@@ -65,9 +66,34 @@ class _ProductsPageState extends State<ProductsPage>with SingleTickerProviderSta
                   CartItemCountWidget(cartItemCounter),
                 ],
               ),
-              CategoryWidget(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 40,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: categoryItems.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            currentCategory = categoryItems[index].nameOfCategory;
+                          });
+                        },
+                        child: Text("${categoryItems[index].nameOfCategory}"),
+                        color: Colors.white24,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                            new BorderRadius.circular(30.0)),
+                      ),
+                    ),
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+              ),
               Expanded(
-                child: GridWidget()
+                child: GridWidget(categoryPressed: currentCategory,)
               )
              // GridWidget(),
             ],
