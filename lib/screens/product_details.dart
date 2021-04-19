@@ -20,8 +20,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
         body: SingleChildScrollView(
-      child: Column(
-        children: [
+      child:Column(
+        children:[
           Stack(
             alignment: Alignment.topRight,
             children: [
